@@ -6,10 +6,4 @@ In this chapter, you'll learn the basics of Gatsby:
 - Adding pages and routes
 - Linking between pages
 
-Your assignments in this chapter are to:
-
-1. Clone the `hello-world` starter (`gatsby new hello-gatsby https://github.com/gatsbyjs/gatsby-starter-hello-world)`.
-2. Add a page to `src/pages`. It can be anything you want, it just has to be a React component.
-3. Add a link between your page and `index.js`.
-
-Good luck!
+You can find the finished sample code for this chapter in `sample-code/hello-gatsby`. The assignments and their solutions are in the `assignments` folder.
