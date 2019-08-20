@@ -8,9 +8,9 @@ Here are the next five events happening at Marionberry Farm Lodge:
 
 <ul>
   {props.data.allMdx.nodes.map(node => (
-    <li>
-      <Link to={node.fields.slug}>{node.frontmatter.title}</Link> ({node.frontmatter.date})
-      - {node.excerpt}
+    <li key={node.id}>
+      <Link to={node.fields.slug}>{node.frontmatter.title}</Link> (
+      {node.frontmatter.date}) - {node.excerpt}
     </li>
   ))}
 </ul>
@@ -28,6 +28,7 @@ export const pageQuery = graphql`
           date(formatString: "MM/DD/YYYY")
           title
         }
+        id
       }
     }
   }
