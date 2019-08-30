@@ -1,0 +1,41 @@
+---
+title: "Events"
+---
+
+import { Link, graphql } from "gatsby"
+
+![Blacksmith](../images/blacksmith.jpg)
+
+Here are the next five events happening at Marionberry Farm Lodge:
+
+<ul>
+  {props.data.allMdx.nodes.map(node => (
+    <li key={node.id}>
+      <Link to={node.fields.slug}>{node.frontmatter.title}</Link> (
+      {node.frontmatter.date}) - {node.excerpt}
+    </li>
+  ))}
+</ul>
+
+export const pageQuery = graphql`
+  query {
+    allMdx(
+      limit: 5
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fileAbsolutePath: { regex: "//content/events//" } }
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          category
+          date(formatString: "MM/DD/YYYY")
+          title
+        }
+        id
+      }
+    }
+  }
+`
